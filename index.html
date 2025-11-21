@@ -1,1 +1,461 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H.D.H. Clinic | Premier Speech & Hearing Specialists</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* --- General Reset & Styling --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fcfcfc;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; margin-bottom: 0.5em; color: #004d40; }
+        h2 { font-size: 2.4em; text-align: center; margin-bottom: 1em; position: relative; }
+        h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #ff9800; margin: 10px auto 0; }
+        p { margin-bottom: 1em; }
+
+        /* --- Global Colors & CTAs --- */
+        :root {
+            --primary-color: #004d40; /* Deep Teal/Green */
+            --secondary-color: #ff9800; /* Orange Accent */
+            --light-bg: #e0f2f1; /* Light Teal Background */
+            --dark-bg: #1e1e1e;
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .btn-primary:hover {
+            background-color: #fb8c00;
+            transform: translateY(-2px);
+        }
+
+        /* 1. Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 1.8em;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        nav a {
+            color: #555;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--secondary-color); }
+        .contact-info { font-size: 0.9em; color: var(--primary-color); font-weight: 600; }
+        .contact-info i { color: var(--secondary-color); margin-right: 5px; }
+
+        /* 2. Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1600x600/004d40/ffffff?text=Modern+Hearing+Clinic+Interior');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.2;
+        }
+        .hero-content p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        .status-badge {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #fff;
+        }
+        .closed-tag { color: #ffeb3b; } /* Yellow for visibility */
+        .open-time { color: #4caf50; }
+
+        /* 3. Core Expertise/Diagnostics */
+        #expertise { padding: 80px 0; background-color: var(--light-bg); }
+        .expertise-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .expertise-item {
+            flex-basis: 30%;
+            padding: 20px;
+        }
+        .expertise-item i {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .expertise-item h3 { color: var(--primary-color); }
+        
+        /* 4. Specialized Services */
+        #services { padding: 80px 0; }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .service-card {
+            text-align: left;
+            padding: 25px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary-color);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .service-card:hover {
+            border-top-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .service-card i { margin-right: 10px; color: var(--secondary-color); }
+
+        /* 5. Meet the Specialist */
+        #specialist { padding: 80px 0; background-color: #fff; }
+        .specialist-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-align: left;
+            margin-top: 40px;
+        }
+        .specialist-img {
+            flex: 0 0 35%;
+        }
+        .specialist-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            border: 8px solid var(--light-bg);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .specialist-text {
+            flex: 1;
+        }
+        .specialist-text h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6em; color: var(--secondary-color); }
+
+        /* 6. Patient Testimonials */
+        #testimonials { padding: 80px 0; background-color: var(--light-bg); }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            font-style: italic;
+            text-align: left;
+            position: relative;
+        }
+        .testimonial-card::before { content: '“'; font-size: 4em; color: var(--secondary-color); position: absolute; top: 0px; left: 10px; opacity: 0.2; }
+        .client-name {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .star-rating { color: gold; margin-bottom: 10px; }
+
+        /* 7. Patient Resources/FAQ */
+        #resources { padding: 80px 0; }
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-left: 5px solid var(--primary-color);
+            background-color: #f9f9f9;
+            text-align: left;
+            border-radius: 4px;
+        }
+        .faq-item h4 { margin-bottom: 5px; color: var(--secondary-color); font-size: 1.1em; }
+
+        /* 8. Secondary Call-to-Action (CTA) */
+        #secondary-cta {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        #secondary-cta h2 { color: white; margin-bottom: 10px; font-size: 2em; }
+        #secondary-cta h2::after { background-color: var(--secondary-color); }
+        #secondary-cta p { font-size: 1.2em; max-width: 800px; margin: 0 auto 30px; }
+
+        /* 9. Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            text-align: left;
+            gap: 30px;
+        }
+        .footer-col {
+            flex-basis: 22%;
+        }
+        .footer-col h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+        }
+        .footer-col a, .footer-col p { color: #ccc; text-decoration: none; display: block; margin-bottom: 8px; font-size: 0.9em; }
+        .footer-col a:hover { color: var(--secondary-color); }
+        .hours-list li { list-style: none; margin-bottom: 5px; display: flex; justify-content: space-between; }
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 0.85em;
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 900px) {
+            .specialist-content { flex-direction: column; text-align: center; }
+            .specialist-img { flex: 0 0 50%; }
+        }
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; }
+            nav a { margin: 0 8px; font-size: 0.9em; }
+            .hero-content h1 { font-size: 2.5em; }
+            .footer-col { flex-basis: 45%; margin-bottom: 20px; }
+            .expertise-grid { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">H.D.H. Clinic</div>
+            <nav>
+                <a href="#expertise">Expertise</a>
+                <a href="#services">Services</a>
+                <a href="#specialist">Team</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#resources">FAQ</a>
+                <a href="#contact" class="btn-primary" style="padding: 8px 15px;">Book Now</a>
+            </nav>
+            <div class="contact-info">
+                <i class="fas fa-phone"></i> Call Today: XXXXX XXXXX
+            </div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <span class="status-badge">
+                <i class="far fa-clock"></i> Status: <span class="closed-tag">CLOSED NOW</span> | Opens: <span class="open-time">Saturday at 9:00 AM</span>
+            </span>
+            <h1>Cure Speech & Hearing Clinic: Clarity for Every Conversation.</h1>
+            <p>Providing advanced audiology and personalized speech therapy for all ages in Chhindwara.</p>
+            <a href="#contact" class="btn-primary"><i class="fas fa-calendar-alt"></i> Request a Consultation</a>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <div class="container">
+            <h2>Our Diagnostic Edge</h2>
+            <p>Leveraging state-of-the-art technology to ensure precise and reliable diagnosis for optimal outcomes.</p>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Precision Testing</h3>
+                    <p>Advanced audiometry and diagnostic tools for accurate hearing loss assessment.</p>
+                </div>
+                <div class="expertise-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Neuro-Linguistic Approach</h3>
+                    <p>Integrating speech therapy with cognitive and behavioral science for holistic development.</p>
+                </div>
+                <div class="expertise-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Family-Centered Care</h3>
+                    <p>Involving parents and caregivers for sustained progress and effective home routines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <div class="container">
+            <h2>Our Comprehensive Treatment Programs</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3><i class="fas fa-child"></i> Pediatric Speech Therapy</h3>
+                    <p>Targeted therapy for speech sound disorders, late talkers, and language delays in young children.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-puzzle-piece"></i> Autism Communication Support</h3>
+                    <p>Specialized programs for improving social communication, comprehension, and expressive language in children with ASD.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-lightbulb"></i> ADHD & Focus Therapy</h3>
+                    <p>Communication strategies and auditory training to help manage challenges related to Attention Deficit Hyperactivity.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-volume-up"></i> Hearing Aid Consultation</h3>
+                    <p>Expert fitting, counseling, and maintenance for a wide range of digital hearing solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-ear"></i> Tinnitus Management</h3>
+                    <p>Customized plans for managing and reducing the effects of ringing in the ears.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-comments"></i> Adult Speech Rehabilitation</h3>
+                    <p>Post-stroke aphasia, voice therapy, and swallowing (dysphagia) rehabilitation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specialist">
+        <div class="container">
+            <h2>Meet Your Specialist</h2>
+            <div class="specialist-content">
+                <div class="specialist-img">
+                    
+                    <img src="https://via.placeholder.com/350/004d40/ffffff?text=Professional+Specialist" alt="H.D.H. Clinic Specialist">
+                </div>
+                <div class="specialist-text">
+                    <h3>The H.D.H. Commitment to Care</h3>
+                    <p>Founded by a highly qualified **Speech & Hearing Specialist**, our clinic is built on a foundation of empathy, continuous learning, and measurable results. We understand that communication is key to quality of life.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> **Certified Expertise:** All diagnostics and therapies are led by certified professionals.</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> **Personalized Plans:** Every treatment path is tailored to the individual's unique needs and goals.</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> **Highest Rating:** Proud 5.0-star average based on 17 verified patient reviews.</li>
+                    </ul>
+                    <a href="#secondary-cta" class="btn-primary" style="margin-top: 20px;">Read More About Our Approach</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Patient Success Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <span class="star-rating">⭐⭐⭐⭐⭐</span>
+                    <p>“The improvement in my son's speech after just three months of therapy here is incredible. They made learning fun and engaging. Highly recommend H.D.H.!”</p>
+                    <span class="client-name">- R. Sharma (Parent)</span>
+                </div>
+                <div class="testimonial-card">
+                    <span class="star-rating">⭐⭐⭐⭐⭐</span>
+                    <p>“I finally found the right hearing solution. The consultation was thorough, and the specialist was patient and informative. Truly a 5-star experience.”</p>
+                    <span class="client-name">- S. Patel (Adult Patient)</span>
+                </div>
+                <div class="testimonial-card">
+                    <span class="star-rating">⭐⭐⭐⭐⭐</span>
+                    <p>“Excellent support for managing my teenager's attention and communication difficulties. The approach was compassionate and highly effective.”</p>
+                    <span class="client-name">- A. Singh (Parent)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+      <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Contact Details</h3>
+                <p><i class="fas fa-map-marker-alt"></i> **H.D.H. Clinic**</p>
+                <p>Shop No. 17, 1st Floor, Complex-1, <br>Chhindwara Main Road (Parasia Road).</p>
+                <p><i class="fas fa-phone"></i> XXXXX XXXXX</p>
+                <p><i class="fas fa-envelope"></i> info@hdhclinic.com</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Navigation</h3>
+                <a href="#hero">Home</a>
+                <a href="#services">Our Programs</a>
+                <a href="#specialist">The Team</a>
+                <a href="#testimonials">Reviews</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Clinic Hours</h3>
+                <ul class="hours-list">
+                    <li>Mon - Fri: <span>9:00 AM - 6:00 PM</span></li>
+                    <li>Sat: <span>9:00 AM - 1:00 PM</span></li>
+                    <li>Sun: <span>Closed</span></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Patient Rating</h3>
+                <p style="font-size: 1.5em; color: white;">⭐⭐⭐⭐⭐</p>
+                <p style="font-weight: 600;">5.0 Average based on 17 Reviews</p>
+                <a href="#" style="color: var(--secondary-color);">View on Google Maps</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 HEARING DIAGNOSTIC HUB (H.D.H.). All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
